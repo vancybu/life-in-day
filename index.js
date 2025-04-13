@@ -1,10 +1,12 @@
-//Life in years, days, weeks and months
-const btn = document.querySelector(".open");
-btn.addEventListener("click", () => {
-  const age = parseInt(document.getElementById("age").value);
-  const yearYouWishToLive = parseInt(document.getElementById("year").value);
+// Life in years, days, weeks, and months
+document.querySelector(".open").addEventListener("click", () => {
+  const age = parseInt(document.getElementById("age").value.trim(), 10);
+  const yearYouWishToLive = parseInt(
+    document.getElementById("year").value.trim(),
+    10
+  );
 
-  if (!age || isNaN(age) || !yearYouWishToLive || isNaN(yearYouWishToLive)) {
+  if (isNaN(age) || isNaN(yearYouWishToLive)) {
     alert(
       "Please enter valid numbers for both age and the year you wish to live until."
     );
@@ -18,27 +20,35 @@ btn.addEventListener("click", () => {
     return;
   }
 
+  showPopup();
+  displayLifeInWeeks(yearYouWishToLive, age);
+});
+
+function showPopup() {
   const popup = document.querySelector(".popup");
   popup.style.display = "block";
 
-  // Close popup button
+  // Ensure the close button listener is added only once
   const close = document.querySelector(".close");
-  close.addEventListener("click", () => {
-    popup.style.display = "none";
-  });
+  close.onclick = () => (popup.style.display = "none");
+}
 
-  lifeInWeeks(yearYouWishToLive, age);
-});
+function displayLifeInWeeks(yearYouWishToLive, age) {
+  const { years, months, weeks, days } = calculateLifeInWeeks(
+    yearYouWishToLive,
+    age
+  );
 
-function lifeInWeeks(yearYouWishToLive, age) {
+  const resultMessage = `You have ${years} years, ${months} months, ${weeks} weeks, and ${days} days left.`;
+  document.querySelector(".popup-results").innerHTML = resultMessage;
+}
+
+function calculateLifeInWeeks(yearYouWishToLive, age) {
   const yearsRemaining = yearYouWishToLive - age;
-  const days = yearsRemaining * 365;
-  const weeks = yearsRemaining * 52;
-  const months = yearsRemaining * 12;
-
-  const cal = `You have ${yearsRemaining} years, ${months} months, ${weeks} weeks and ${days} days left.`;
-
-  const remain = document.querySelector(".popup-results");
-  remain.innerHTML = cal;
-  console.log(remain);
+  return {
+    years: yearsRemaining,
+    days: yearsRemaining * 365,
+    weeks: yearsRemaining * 52,
+    months: yearsRemaining * 12,
+  };
 }
