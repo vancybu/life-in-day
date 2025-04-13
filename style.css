@@ -1,0 +1,178 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  background-color: #f4f4f4;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  gap: 20px;
+}
+
+.background-image {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  max-width: 350px;
+  width: 100%;
+  height: 300px;
+  border-radius: 10px;
+  background-image: url(5.jpg);
+  background-position: center;
+  background-size: cover;
+}
+
+.items {
+  padding: 20px;
+  color: #ffffff;
+}
+
+h2 {
+  font-size: 2.5rem;
+  text-align: center;
+  margin: 20px 0 6px;
+  font-weight: normal;
+}
+
+.details {
+  font-size: 1.4rem;
+  text-align: center;
+  font-weight: normal;
+}
+
+.form-group {
+  padding: 20px;
+  max-width: 350px;
+  width: 100%;
+  height: 300px;
+  border-radius: 10px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+h3 {
+  font-size: 2rem;
+  margin: 20px 0 6px;
+  font-weight: normal;
+  color: #333;
+}
+
+label {
+  font-size: 1.2rem;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  outline: none;
+  margin: 5px 0 8px;
+  border: none;
+  border-radius: 5px;
+  border: 1.5px solid #333;
+}
+
+input:hover {
+  box-shadow: 0 0 6px #0b6997;
+  border: none;
+}
+
+.btn {
+  padding: 6px;
+  width: 100px;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 6px;
+  color: #ffffff;
+  background-color: #3baeda;
+  margin-top: 8px;
+}
+
+.btn:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.popup {
+  background-color: #00000099;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  z-index: 1000;
+  display: none;
+}
+
+.popup-items {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  max-width: 280px;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+h4 {
+  font-size: 2rem;
+  font-weight: normal;
+  color: #333;
+  margin: 5px 0;
+  color: red;
+}
+
+.popup-results {
+  font-size: 1.3rem;
+  margin-bottom: 6px;
+  color: green;
+}
+
+@media (max-width: 746px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+  }
+
+  .background-image {
+    max-width: 100%;
+    height: auto;
+    height: 260px;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  p {
+    font-size: 1.3rem;
+  }
+
+  .form-group {
+    max-width: 100%;
+    height: 280px;
+  }
+
+  h3 {
+    font-size: 1.8rem;
+    margin: 10px 0 5px;
+  }
+
+  .btn {
+    margin-top: 4px;
+  }
+
+  .popup-items {
+    width: 100%;
+  }
+}
